@@ -1,0 +1,19 @@
+:host {
+  display: flex;
+  flex-direction: column;
+}
+app-dropdown-menu {
+  margin-bottom: 10px;
+}
+app-graph {
+  width: 410px;
+  height: 410px;
+
+}
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 410px;
+  height: 410px;
+}

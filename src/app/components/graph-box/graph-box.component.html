@@ -1,0 +1,7 @@
+<app-dropdown-menu (changeDate)="dateChange($event)"></app-dropdown-menu>
+<app-graph *ngIf="isDataLoaded; else loading" [data]="slicedData" [startDate]="from" [endDate]="to" [domain]="domain"></app-graph>
+<ng-template #loading>
+    <div class=loading>
+        <h1>Loading data</h1>
+    </div>
+</ng-template>
