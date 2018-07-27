@@ -9,18 +9,16 @@ import { MapData } from '../models/mapped';
   providedIn: 'root'
 })
 export class DataService {
-
   private calcFinished = new EventEmitter<MapData[]>();
   private worker: Worker;
 
   constructor(private httpClient: HttpClient) {
     this.worker = new Worker('worker.js');
-
   }
 
   getTemperature(): Observable<MapData[]> {
     return this.httpClient.get<Data[]>('assets/data/temperature.json').pipe(
-      mergeMap((data) => {
+      mergeMap(data => {
         this.CalcAndMap(data);
         return this.calcFinished.asObservable();
       })
@@ -29,18 +27,16 @@ export class DataService {
 
   getPreciptiation(): Observable<MapData[]> {
     return this.httpClient.get<Data[]>('assets/data/precipitation.json').pipe(
-      mergeMap((data) => {
+      mergeMap(data => {
         this.CalcAndMap(data);
         return this.calcFinished.asObservable();
       })
     );
   }
 
-
-
   CalcAndMap(data: Data[]) {
     this.worker.postMessage(data);
-    this.worker.onmessage = (event) => {
+    this.worker.onmessage = event => {
       this.calcFinished.emit(event.data);
     };
   }

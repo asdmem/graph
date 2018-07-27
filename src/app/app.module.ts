@@ -19,13 +19,8 @@ import { GraphBoxComponent } from './components/graph-box/graph-box.component';
     TemperatureComponent,
     GraphBoxComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    HttpClientModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

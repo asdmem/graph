@@ -9,7 +9,6 @@ import { Command } from '../../models/command';
   styleUrls: ['./graph-box.component.scss']
 })
 export class GraphBoxComponent implements OnInit {
-
   @Input() command: Command;
   @Input() domain = [-50, 50];
 
@@ -19,7 +18,7 @@ export class GraphBoxComponent implements OnInit {
   from = 1881;
   to = 2006;
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
     this.command().subscribe(data => {
@@ -32,5 +31,4 @@ export class GraphBoxComponent implements OnInit {
     [this.from, this.to] = fromTo;
     this.slicedData = this.data.slice(this.from - 1881, this.to - 1881);
   }
-
 }

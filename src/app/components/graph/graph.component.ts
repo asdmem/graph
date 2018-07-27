@@ -20,12 +20,10 @@ import { MapData } from '../../models/mapped';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class GraphComponent implements OnInit, OnChanges {
-
   @Input() data: MapData[];
   @Input() startDate: number;
   @Input() endDate: number;
   @Input() domain: number[];
-
 
   @ViewChild('svgEl') svgEl: ElementRef<SVGElement>;
   svg: SVGElement;
@@ -107,31 +105,30 @@ export class GraphComponent implements OnInit, OnChanges {
       .attr('d', lineMin);
     svg
       .append('g')
-        .selectAll('text')
-        .data<MapData>(this.data.filter((v, i) => i % 20 === 0 || i === 0))
-        .enter()
-        .append('text')
-        .attr('x', (d) => scaleX(d.year))
-        .attr('y', d => scaleY(d.MaxTemperature) - 10)
-        .text(d => d.MaxTemperature);
+      .selectAll('text')
+      .data<MapData>(this.data.filter((v, i) => i % 20 === 0 || i === 0))
+      .enter()
+      .append('text')
+      .attr('x', d => scaleX(d.year))
+      .attr('y', d => scaleY(d.MaxTemperature) - 10)
+      .text(d => d.MaxTemperature);
     svg
       .append('g')
-        .selectAll('text')
-        .data<MapData>(this.data.filter((v, i) => i % 20 === 0 || i === 0))
-        .enter()
-        .append('text')
-        .attr('x', (d) => scaleX(d.year))
-        .attr('y', d => scaleY(d.averageTemperature) - 10)
-        .text(d => d.averageTemperature.toFixed(1));
+      .selectAll('text')
+      .data<MapData>(this.data.filter((v, i) => i % 20 === 0 || i === 0))
+      .enter()
+      .append('text')
+      .attr('x', d => scaleX(d.year))
+      .attr('y', d => scaleY(d.averageTemperature) - 10)
+      .text(d => d.averageTemperature.toFixed(1));
     svg
       .append('g')
-        .selectAll('text')
-        .data<MapData>(this.data.filter((v, i) => i % 20 === 0 || i === 0))
-        .enter()
-        .append('text')
-        .attr('x', (d) => scaleX(d.year))
-        .attr('y', d => scaleY(d.minTemperature) - 10)
-        .text(d => d.minTemperature);
+      .selectAll('text')
+      .data<MapData>(this.data.filter((v, i) => i % 20 === 0 || i === 0))
+      .enter()
+      .append('text')
+      .attr('x', d => scaleX(d.year))
+      .attr('y', d => scaleY(d.minTemperature) - 10)
+      .text(d => d.minTemperature);
   }
-
 }

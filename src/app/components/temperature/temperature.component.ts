@@ -8,10 +8,9 @@ import { Command } from '../../models/command';
   styleUrls: ['./temperature.component.scss']
 })
 export class TemperatureComponent implements OnInit {
-
   command: Command;
 
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: DataService) {}
 
   ngOnInit() {
     this.command = () => this.dataService.getTemperature();

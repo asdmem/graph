@@ -8,13 +8,11 @@ import { DataService } from '../../services/data.service';
   styleUrls: ['./precipitation.component.scss']
 })
 export class PrecipitationComponent implements OnInit {
-
   command: Command;
 
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: DataService) {}
 
   ngOnInit() {
     this.command = () => this.dataService.getPreciptiation();
   }
-
 }

@@ -1,6 +1,6 @@
 <select [(ngModel)]="from" (change)="checkFromTo('from')" class="from">
   <option *ngFor="let year of years" [ngValue]="year">{{year}}</option>
 </select>
-<select [(ngModel)]="to" (change)="checkFromTo('to')"  class="to">
-    <option *ngFor="let year of years" [ngValue]="year">{{year}}</option>
+<select [(ngModel)]="to" (change)="checkFromTo('to')" class="to">
+  <option *ngFor="let year of years" [ngValue]="year">{{year}}</option>
 </select>

@@ -8,7 +8,7 @@ const routes: Routes = [
   {
     path: '',
     redirectTo: 'temperature',
-    pathMatch: 'full',
+    pathMatch: 'full'
   },
   {
     path: 'temperature',
@@ -21,13 +21,8 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [
-    CommonModule,
-    RouterModule.forRoot(routes)
-  ],
-  exports: [
-    RouterModule
-  ],
+  imports: [CommonModule, RouterModule.forRoot(routes)],
+  exports: [RouterModule],
   declarations: []
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
